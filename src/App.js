@@ -13,12 +13,23 @@ class App extends Component {
       'thing-3':{id: 'thing-3', name: 'Bibb Lettuce'},
     }
   }
+
+  sumarThing = () => {
+    const things = {...this.state.things}
+    const thing = {
+      id:'thing-4',
+      name:'Steel-Cut Irish Oatmeal'
+    }
+    things[thing.id] = thing
+    this.setState({ things })
+  }
+
   render() {
     return (
       
       <div className="App">
         <Header />
-        <AddThing />
+        <AddThing sumarThing={this.sumarThing} />
         <ThingList things={this.state.things} />
       </div>
     );

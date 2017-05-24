@@ -1,9 +1,10 @@
 import React from 'react';
 
 import "./ThingList.css"
+import AddThing from './AddThing'
 import Thing from './Thing'
 
-const ThingList = (props) =>{
+const ThingList = (props, AddThing) =>{
     return(
         <ul className = "ThingList">
             {

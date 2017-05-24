@@ -16,7 +16,7 @@ button.github {
   -webkit-box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
           box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
 }
-.text{
+.textbox{
   width: 450px;
   font-family: 'helvetica neue', sans-serif;
   font-size: 20px;
@@ -27,5 +27,7 @@ button.github {
   display: block;
   border-bottom: 20px;
   text-align: center;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  -webkit-box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+          box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
 }

@@ -2,6 +2,7 @@ import React from 'react';
 
 import "./Thing.css"
 
+
 const Thing = ({thing}) =>{
     return(
         <li className="Thing">

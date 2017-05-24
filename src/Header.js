@@ -5,7 +5,7 @@ import './Header.css'
 const Header = () => {
     return (
         <header>
-            <h1>Thing List</h1>
+            <h1>ThingList</h1>
             <h2> So many things </h2>
         </header>
     )
