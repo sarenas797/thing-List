@@ -14,9 +14,9 @@ class Thing extends Component{
     }
   }
   updateName = (ev) => {
-    const {thing, savething} = this.props
+    const {thing, saveThing} = this.props
     thing.name = ev.target.value
-    this.props.saveThing(thing)
+    saveThing(thing)
   }
 
   blurOnEnter=(ev)=>{
@@ -25,15 +25,37 @@ class Thing extends Component{
       ev.target.blur()
     }
   }
+  completed=(ev)=>{
+    const {thing, saveThing}=this.props
+    if(thing.completed===false){
+      thing.completed=true
+    }
+    else{
+      thing.completed=false
+      
+    }
+    console.log(thing.completed)
+    saveThing(thing)
+  }
+
+  check(){
+     const {thing, saveThing}=this.props
+     const checked=false
+     saveThing(thing)
+  }
 
   render(){
-    const {thing, removething}=this.props
+    const {thing, removeThing}=this.props
       return(
           <li className="Thing">
-              <input type="checkbox" value="on"/>
+              <input type="checkbox" value="on" onChange={this.completed} checked={thing.completed} />
             <div className="details">
-              <ContentEditable html={thing.name} className="name" onChange={this.updateName} ref={input=> this.nameInput = input} onKeyPress={this.blurOnEnter}/>
-              <Actions thing={thing} removeThing={this.props.removeThing} />
+              <ContentEditable html={thing.name} 
+              className="name" 
+              onChange={this.updateName} 
+              ref={input=> this.nameInput = input} 
+              onKeyPress={this.blurOnEnter}/>
+              <Actions thing={thing} removeThing={removeThing} />
             </div>
           </li>
       )

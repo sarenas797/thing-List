@@ -30,7 +30,8 @@ class App extends Component {
   thing(){
     return{
       id:`thing-${Date.now()}`,
-      name:''
+      name:'',
+      completed:false,
     }
   }
 
@@ -53,6 +54,7 @@ class App extends Component {
     const actions={
       saveThing:this.saveThing,
       removeThing:this.removeThing,
+      completed:this.completed,
     }
 
     return (

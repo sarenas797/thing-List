@@ -1,10 +1,9 @@
 import React from 'react';
 
 import "./ThingList.css"
-import AddThing from './AddThing'
 import Thing from './Thing'
 
-const ThingList = (props, AddThing) =>{
+const ThingList = (props, AddThing, ) =>{
 
     const sortThings = (a, b) =>{
         return b.match(/\d+/)[0]-a.match(/\d+/)[0]
