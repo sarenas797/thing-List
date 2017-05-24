@@ -13,7 +13,11 @@ const ThingList = (props, AddThing) =>{
     return(
         <ul className = "ThingList">
             {
-                Object.keys(props.things).sort(sortThings).map(thingId => <Thing thing={props.things[thingId]} key={thingId} />)
+                Object.keys(props.things).sort(sortThings).map(thingId => <Thing 
+                                                                            thing={props.things[thingId]} 
+                                                                            key={thingId} 
+                                                                           {...props}
+                                                                             />)
             }
         </ul>
     )

@@ -1,18 +1,23 @@
 import React from 'react';
 
 import "./Thing.css"
+import ContentEditable from './react-contenteditable'
 
 
-const Thing = ({thing}) =>{
+const Thing = ({thing, saveThing, removeThing}) =>{
+
+  const updateName=(ev)=>{
+    thing.name = ev.target.value
+    saveThing(thing)
+  }
+
     return(
         <li className="Thing">
             <input type="checkbox" value="on"/>
           <div className="details">
-            <div className="name">
-              {thing.name}
-            </div>
+            <ContentEditable html={thing.name} className="name" onChange={updateName} />
             <span className="actions">
-              <button className="remove">
+              <button className="remove" onClick={()=>removeThing(thing)}>
                 <i className="fa fa-trash-o"></i>
               </button>
             </span>
