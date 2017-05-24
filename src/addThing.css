@@ -1,0 +1,31 @@
+button.add-thing,
+button.github {
+  background-color: #F5B700;
+  border: 0;
+  border-radius: 5px;
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+  -webkit-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  transition: background 0.2s;
+  font-family: 'helvetica neue', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  -webkit-box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+          box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+}
+.text{
+  width: 450px;
+  font-family: 'helvetica neue', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  border: 0;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: block;
+  border-bottom: 20px;
+  text-align: center;
+  margin-bottom: 10px
+}
