@@ -50,6 +50,7 @@ class Thing extends Component{
           <li className="Thing">
               <input type="checkbox" value="on" onChange={this.completed} checked={thing.completed} />
             <div className="details">
+             
               <ContentEditable html={thing.name} 
               className="name" 
               onChange={this.updateName} 
