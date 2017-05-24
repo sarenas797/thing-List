@@ -11,6 +11,12 @@ class App extends Component {
     }
   }
 
+  removeThing = (thing) => {
+    const things = {...this.state.things}
+    delete things[thing.id]
+    this.setState({ things })
+  }
+
   thing(){
     return{
       id:`thing-${Date.now()}`,
