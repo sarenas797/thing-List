@@ -13,13 +13,17 @@ class App extends Component {
       'thing-3':{id: 'thing-3', name: 'Bibb Lettuce'},
     }
   }
+  
+  thing(){
+    return{
+      id:`thing-${Date.now()}`,
+      name:''
+    }
+  }
 
   sumarThing = () => {
     const things = {...this.state.things}
-    const thing = {
-      id:'thing-4',
-      name:'Steel-Cut Irish Oatmeal'
-    }
+    const thing = this.thing()
     things[thing.id] = thing
     this.setState({ things })
   }
