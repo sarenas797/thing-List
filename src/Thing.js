@@ -52,9 +52,9 @@ class Thing extends Component{
               ref={input=> this.nameInput = input} 
               onKeyPress={this.blurOnEnter}/>
 
-              <input value={thing.dueDate} 
+              <input defaultValue={thing.dueDate} 
               className="name" 
-              type="date"
+              type="date" 
               onChange={this.updateDate} 
               //ref={input=> this.nameInput = input} 
               onKeyPress={this.blurOnEnter}/>

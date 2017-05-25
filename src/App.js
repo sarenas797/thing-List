@@ -5,6 +5,7 @@ import Header from "./Header"
 import ThingList from "./ThingList"
 import AddThing from "./AddThing"
 import base from './base'
+import SignOut from './Signout'
 
 class App extends Component {
 
@@ -21,7 +22,7 @@ class App extends Component {
     }
   }
 
-  removeThing = (thing) => {
+  removeThing = (thing) => {    
     const things = {...this.state.things}
     things[thing.id]=null
     this.setState({ things })
@@ -61,6 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <SignOut />
         <AddThing sumarThing={this.sumarThing} />
         <ThingList things={this.state.things}{...actions} />
       </div>
