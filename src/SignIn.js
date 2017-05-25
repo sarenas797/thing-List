@@ -3,9 +3,11 @@ import React from 'react'
 import'./Signin.css'
 import {auth, githubProvider} from './base'
 
-const SignIn=()=>{
+const SignIn=({authHandler})=>{
     const authenticate=(provider)=>{
-        auth.signInWithPopup(provider)
+        auth
+        .signInWithPopup(provider)
+        .then(authHandler)
     }
 
     return(
