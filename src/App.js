@@ -6,6 +6,7 @@ import ThingList from "./ThingList"
 import AddThing from "./AddThing"
 import base from './base'
 import SignOut from './Signout'
+import SignIn from './SignIn'
 
 class App extends Component {
 
@@ -51,20 +52,34 @@ class App extends Component {
     this.setState({things})
   }
 
-  render() {
+  signedIn=()=>{
+    return true
+  }
 
+  renderMain=()=>{
     const actions={
       saveThing:this.saveThing,
       removeThing:this.removeThing,
       completed:this.completed,
     }
-
-    return (
-      <div className="App">
-        <Header />
+    return(
+      <div>
         <SignOut />
         <AddThing sumarThing={this.sumarThing} />
         <ThingList things={this.state.things}{...actions} />
+      </div>
+    )
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+
+        {this.signedIn() ? this.renderMain() : <SignIn />}
+
+        <SignIn />
       </div>
     );
   }

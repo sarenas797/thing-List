@@ -4,7 +4,7 @@ import './Signout.css'
 
 const SignOut=()=>{
     return(
-        <button className="SignOut">Signout</button>
+        <button className="SignOut">Sign out</button>
     )
 }
 
