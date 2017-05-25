@@ -4,7 +4,7 @@ import './App.css';
 import Header from "./Header"
 import ThingList from "./ThingList"
 import AddThing from "./AddThing"
-import base from './base'
+import base, {auth} from './base'
 import SignOut from './Signout'
 import SignIn from './SignIn'
 
@@ -15,16 +15,29 @@ class App extends Component {
   }
 
   authHandler=(authData)=>{
-    this.setState({uid:authData.user.uid})
+    this.setState(
+      {uid:authData.user.uid},
+      this.syncThings
+    )
   }
 
-  componentWillMount(){
+  syncThings=()=>{
     base.syncState(
       'things',
       {
         context:this,
         state:'things'
     })
+  }
+
+  componentWillMount(){
+    auth.onAuthStateChanged(
+      (user)=>{
+        if(user){
+          this.authHandler({user})
+        }
+      }
+    )
   }
 
   removeThing = (thing) => {    
@@ -37,7 +50,7 @@ class App extends Component {
     return{
       id:`thing-${Date.now()}`,
       name:'',
-      dueDate:'',
+      dueDate:'', 
       completed:false,
     }
   }
@@ -59,6 +72,12 @@ class App extends Component {
   signedIn=()=>{
     return this.state.uid
   }
+  
+  signOut=()=>{
+    auth
+      .signOut()
+      .then(() => this.setState({uid:null}))
+  }
 
   renderMain=()=>{
     const actions={
@@ -68,7 +87,7 @@ class App extends Component {
     }
     return(
       <div>
-        <SignOut />
+        <SignOut signOut={this.signOut} />
         <AddThing sumarThing={this.sumarThing} />
         <ThingList things={this.state.things}{...actions} />
       </div>

@@ -2,9 +2,9 @@ import React from 'react'
 
 import './Signout.css'
 
-const SignOut=()=>{
+const SignOut=(props)=>{
     return(
-        <button className="SignOut">Sign out</button>
+        <button className="SignOut" onClick={props.signOut}>Sign out</button>
     )
 }
 
