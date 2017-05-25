@@ -34,14 +34,7 @@ class Thing extends Component{
   }
   completed=(ev)=>{
     const {thing, saveThing}=this.props
-    if(thing.completed===false){
-      thing.completed=true
-    }
-    else{
-      thing.completed=false
-      
-    }
-    console.log(thing.completed)
+    thing.completed = ev.target.checked
     saveThing(thing)
   }
 
@@ -51,14 +44,14 @@ class Thing extends Component{
     const {thing, removeThing}=this.props
       return(
           <li className="Thing">
-              <input type="checkbox" value="on" onChange={this.completed} checked={thing.completed} />
+              <input type="checkbox" onChange={this.completed} defaultChecked={thing.completed} />
             <div className="details">
               <ContentEditable html={thing.name} 
               className="name" 
               onChange={this.updateName} 
               ref={input=> this.nameInput = input} 
               onKeyPress={this.blurOnEnter}/>
-              
+
               <input value={thing.dueDate} 
               className="name" 
               type="date"
